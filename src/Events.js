@@ -10,8 +10,8 @@ class Component extends React.Component {
   }
   onLinkClicked(numberId, event) {
     event.preventDefault();
-    
-    const filteredArray = this.state.events.filter(item => item.id !== numberId )
+
+    const filteredArray = this.state.events.filter(item => item.id !== numberId)
 
     this.setState({
       events: filteredArray
