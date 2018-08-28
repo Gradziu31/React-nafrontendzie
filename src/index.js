@@ -4,26 +4,25 @@ import events from './data/events.json';
 import Component from './Events.js';
 
 // class Hello extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = { text: 'Hello!' };
-
-//       this.onLinkClicked = this.onLinkClicked.bind(this);
-//     }
-   
-//     onLinkClicked(event) {
+//     onLinkClicked(number, event) {
 //       event.preventDefault();
-//       this.setState({ text: 'Goodbye!' });
+//       console.log('Hello number ' + number + '!');
 //     }
    
 //     render() {
 //       return (
-//         <div>
-//         <p>{this.state.text}</p>
-//         <a href="/" onClick={this.onLinkClicked}>
-//           Say Goodbye!
-//         </a>
-//         </div>
+//         <ul>
+//           <li>
+//             <button onClick={this.onLinkClicked.bind(this, 1)}>
+//               Say One!
+//             </button>
+//           </li>
+//           <li>
+//             <button onClick={this.onLinkClicked.bind(this, 2)}>
+//               Say Two!
+//             </button>
+//           </li>
+//         </ul>
 //       );
 //     }
 //   }

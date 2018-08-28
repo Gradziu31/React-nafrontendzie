@@ -8,13 +8,22 @@ class Component extends React.Component {
       events: [],
     }
   }
+  onLinkClicked(numberId, event) {
+    event.preventDefault();
+    
+    const filteredArray = this.state.events.filter(item => item.id !== numberId )
+
+    this.setState({
+      events: filteredArray
+    });
+  }
   componentDidMount() {
     this.setState({
       events: this.props.events,
     })
   }
   clear(event) {
-event.preventDefault();
+    event.preventDefault();
 
     this.setState({
       events: [],
@@ -35,7 +44,8 @@ event.preventDefault();
             <li key={item.id}>
             <b>{item.name}</b><br />
             Gdzie: {item.place}<br />
-            Kiedy: {item.date} - {item.time}
+            Kiedy: {item.date} - {item.time}<br />
+            <button onClick={this.onLinkClicked.bind(this, item.id)}>usuń</button>
             </li>
           );
         }
