@@ -4,42 +4,33 @@ import ReactDOM from 'react-dom';
 // import PropTypes from 'prop-types';
 // import Component from './Events.js';
 
-
-// Poniżej przykład w którym przekazuję stan początkowy do zagnieżdzonego komponentu
 class HomeComponent extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = { 
-            text: 'Janusz', 
-            age: 57,
-            click: 0,
-        };
+      super(props);
+      this.state = { 
+        name: 'Janusz', 
+        age: 57,
+        isActive: true
+      };
     }
-    render(){
-        return (
-            <div>
-            <h1>Wyrenderowane ze stanu:</h1>
-            <p>Imię: {this.state.text}</p>
-            <p>Wiek: {this.state.age}</p>
-            <UserData text={this.state.text} age={this.state.age}/>
-            <div>
-                <h1>Hit Click: {this.state.click}</h1>
-                <button onClick={() => this.setState({click: this.state.click + 1})}>HIT!</button>
-            </div>
-            </div>
-        )
-    }   
-}
-
-const UserData = (props) => {
-    return (
-      <div>
-      <h1>Przekazane wartości przez props:</h1>
-        <p>Imię: {props.text}</p>
-        <p><strong>wiek:</strong> {props.age}</p>
-      </div>
-    );
-}
+    // tutaj nadpisuje stan, po pierwszym ładowaniu - jest takich opcji więcej można o nich poczytac w dokumentacji.
+    componentDidMount (){
+        this.setState({
+            isActive: false,
+        })
+    }
+    render() {
+        const containerClass = this.state.isActive ? 'active' : 'inactive';
+  
+      return (
+        <div className={containerClass}>
+          <h1>Imię: {this.state.name}</h1>
+          <p>Wiek: {this.state.age}</p>
+          <button onClick={() => this.setState({ isActive: false })}>Deaktywuj</button>
+        </div>
+      );
+    }
+  }
 
 // ReactDOM.render(<Component events={events}/>, document.getElementById('root'));
 ReactDOM.render(<HomeComponent />, document.getElementById('root'));
