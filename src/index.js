@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import events from './data/events.json';
-import getEvents from './Events.js';
+import Component from './Events.js';
 
-ReactDOM.render(getEvents(events), document.getElementById('root'));
+// const Component = (props) => {
+//     return <p>{props.text}</p>
+// } 
+
+ReactDOM.render(<Component events={events} />, document.getElementById('root'));
