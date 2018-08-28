@@ -13,11 +13,19 @@ class Component extends React.Component {
       events: this.props.events,
     })
   }
+  clear(event) {
+event.preventDefault();
+
+    this.setState({
+      events: [],
+    })
+  }
   static propTypes = {
     events: PropTypes.array.isRequired
   };
     render() {
       return (
+        <div>
         <ul>
       {this.state.events.map((item) => {
         const date = new Date(item.date);
@@ -34,6 +42,8 @@ class Component extends React.Component {
         return null;
       })}
     </ul>
+    <button onClick={this.clear.bind(this)}>wyczyść</button>
+        </div>
       )
     }
   }
