@@ -1,8 +1,10 @@
 import React from 'react';
-
-// komponent funkcyjny z poprzedniego ćwiczenia ma ograniczone możliwości i może być użyty tylko w niektórych sytuacjach.
+import PropTypes from 'prop-types';
 
 class Component extends React.Component {
+  static propTypes = {
+    events: PropTypes.array.isRequired
+  };
     render() {
       return (
         <ul>
