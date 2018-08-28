@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.10"
+    "react-scripts": "^1.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
